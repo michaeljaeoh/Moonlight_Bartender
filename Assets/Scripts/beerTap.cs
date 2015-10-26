@@ -4,7 +4,6 @@ using System.Collections;
 public class beerTap : MonoBehaviour {
 
     Animator animator;
-    Transform transform;
 
     bool glassPresent = false;
     bool pouring = false;
