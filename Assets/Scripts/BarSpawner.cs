@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class beerGlasses : MonoBehaviour {
+public class BarSpawner : MonoBehaviour {
     private bool mouseOver;
     public world worldInfo;
-    public beerGlass beerglass;
+    public BarItem barItem;
 
 	// Use this for initialization
 	void Start () {
-        Physics.queriesHitTriggers = true;
+        //Physics.queriesHitTriggers = true;
 	
 	}
 	
@@ -20,7 +20,7 @@ public class beerGlasses : MonoBehaviour {
         if (!worldInfo.getMouseBusy() && Input.GetMouseButtonDown(0))
         {
             worldInfo.setMouseBusy();
-            Instantiate(beerglass);
+            Instantiate(barItem);
         }
     }
 }

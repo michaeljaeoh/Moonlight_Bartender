@@ -6,9 +6,10 @@ public class world : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Physics.queriesHitTriggers = true;
         //mouseBusy = true;
         //print(mouseBusy);
-	}
+    }
 
     // Update is called once per frame
     void Update() {

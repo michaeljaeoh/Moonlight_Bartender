@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class beerTap : MonoBehaviour {
+    public BarItem barItem;
 
     Animator animator;
 
@@ -36,13 +37,14 @@ public class beerTap : MonoBehaviour {
             animator.SetTrigger("tapOFF");
             glassPresent = false;
             pouring = false;
+            Instantiate(barItem);
         }
         
 	}
 
     void OnTriggerEnter2D(Collider2D collider2d)
     {
-        if (collider2d.tag == "BeerGlass")
+        if (collider2d.tag == "BeerGlassEmpty")
         {
             glassPresent = true;
             glass = collider2d;
@@ -51,7 +53,7 @@ public class beerTap : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D collider2d)
     {
-        if (collider2d.tag == "BeerGlass")
+        if (collider2d.tag == "BeerGlassEmpty")
         {
             glassPresent = false;
             glass = null;
