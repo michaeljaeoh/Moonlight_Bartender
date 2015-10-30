@@ -4,6 +4,8 @@ using System.Collections;
 public class BarItem : MonoBehaviour {
     private bool mouseOver;
     private bool active;
+    private BarSpawner spawner;
+    private beerTap tap;
 
     // Use this for initialization
     void Start () {
@@ -35,4 +37,19 @@ public class BarItem : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider2d) {
     }
     
+    public void OnDestroy() {
+        if (spawner != null)
+            spawner.setBusyOff();
+        if (tap != null)
+            tap.setBusyOff();
+    }
+    
+    public void setSpawner(BarSpawner barSpawner) {
+        spawner = barSpawner;
+    }
+
+    public void setSpawner(beerTap beerTap)
+    {
+        tap = beerTap;
+    }
 }

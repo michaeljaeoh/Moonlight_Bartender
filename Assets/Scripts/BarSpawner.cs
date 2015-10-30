@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class BarSpawner : MonoBehaviour {
+    private bool busy;
     private bool mouseOver;
     public world worldInfo;
     public BarItem barItem;
@@ -9,7 +10,6 @@ public class BarSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Physics.queriesHitTriggers = true;
-	
 	}
 	
 	// Update is called once per frame
@@ -17,10 +17,15 @@ public class BarSpawner : MonoBehaviour {
 	}
 
     void OnMouseOver() {
-        if (!worldInfo.getMouseBusy() && Input.GetMouseButtonDown(0))
-        {
+        if (!busy && !worldInfo.getMouseBusy() && Input.GetMouseButtonDown(0)) {
             worldInfo.setMouseBusy();
-            Instantiate(barItem);
+            busy = true;
+            BarItem spawnedItem = Instantiate(barItem);
+            spawnedItem.setSpawner(this);
         }
+    }
+
+    public void setBusyOff() {
+        busy = false;
     }
 }

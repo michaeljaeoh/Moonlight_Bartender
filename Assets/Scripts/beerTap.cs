@@ -6,6 +6,7 @@ public class beerTap : MonoBehaviour {
 
     Animator animator;
 
+    private bool busy;
     bool glassPresent = false;
     bool pouring = false;
     float pourTime = 0;
@@ -23,11 +24,12 @@ public class beerTap : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetMouseButtonUp(0) && glassPresent)
+        if (!busy && Input.GetMouseButtonUp(0) && glassPresent)
         {
             pourTime = pourDelay;
             pouring = true;
             animator.SetTrigger("tapON");
+            busy = true;
             Destroy(glass.gameObject);
         }
         
@@ -37,7 +39,8 @@ public class beerTap : MonoBehaviour {
             animator.SetTrigger("tapOFF");
             glassPresent = false;
             pouring = false;
-            Instantiate(barItem);
+            BarItem spawnedItem = Instantiate(barItem);
+            spawnedItem.setSpawner(this);
         }
         
 	}
@@ -50,7 +53,7 @@ public class beerTap : MonoBehaviour {
             glass = collider2d;
         }
     }
-
+    
     void OnTriggerExit2D(Collider2D collider2d)
     {
         if (collider2d.tag == "BeerGlassEmpty")
@@ -58,5 +61,9 @@ public class beerTap : MonoBehaviour {
             glassPresent = false;
             glass = null;
         }
+    }
+
+    public void setBusyOff() {
+        busy = false;
     }
 }
