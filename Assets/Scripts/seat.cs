@@ -14,6 +14,7 @@ public class seat : MonoBehaviour {
 	
 	}
 
+    /*
     void OnTriggerEnter2D(Collider2D collider2d) {
         busy = true;
     }
@@ -21,6 +22,7 @@ public class seat : MonoBehaviour {
     void OnTriggerExit2D(Collider2D collider2d) {
         busy = false;
     }
+    */
 
     public bool getBusy() {
         return busy;
