@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 public class customer : MonoBehaviour {
-    private bool done, sitting, ordered;
+    private bool done, dropped, sitting, ordered;
     private Dictionary<string, int> myOrder;
     private List<string> orderOptions;
     public seat seat1;
@@ -19,6 +19,7 @@ public class customer : MonoBehaviour {
         done = false;
         sitting = false;
         ordered = false;
+        dropped = false;
 	}
 	
 	// Update is called once per frame
@@ -33,24 +34,34 @@ public class customer : MonoBehaviour {
             placeOrder();
             foreach (var item in myOrder.Keys) { print(item); }
         }
-
-        /*
-	    if (!done) {
-            if (!sitting) {
-                if (!seat1.getBusy()) {
-                    seat1.setBusy();
-                    sitting = true;
-                }
-            }
+        else if (sitting && done && dropped)
+        {
+            leaveSeat();
         }
-        */
 	}
+
+    void leaveSeat()
+    {
+        if (transform.position.x > -10.95F)
+        {
+            transform.Translate(Vector2.left * 5.0F * Time.deltaTime);
+        }
+        else 
+        {
+            sitting = false;
+         
+            // Resetting because we only have 1 customer rightn ow
+            done = false;
+            dropped = false;
+
+        }
+    }
 
     void findSeat()
     {
         if (transform.position.x < seat1.transform.position.x)
         {
-            transform.Translate(Vector2.right * Time.deltaTime);
+            transform.Translate(Vector2.right * 5.0F * Time.deltaTime);
         }
         else { sitting = true; }
     }
@@ -64,20 +75,34 @@ public class customer : MonoBehaviour {
         ordered = true;
     }
 
-    void onTriggerEnter2D(Collider2D collider2d)
+    void OnTriggerEnter2D(Collider2D collider2d)
     {
         if (collider2d.tag == "Seat")
         {
             seat1.setBusy();
         }
+
     }
 
-    void onTriggerExit2D(Collider2D collider2d)
+    void OnTriggerStay2D(Collider2D collider2d)
+    {
+        if (collider2d.tag == "BeerGlassFull" && Input.GetMouseButtonUp(0))
+        {
+            done = true;
+            dropped = true;
+            Destroy(collider2d.gameObject);
+        }
+    }
+ 
+
+ 
+    void OnTriggerExit2D(Collider2D collider2d)
     {
         if (collider2d.tag == "Seat")
         {
             seat1.clearBusy();
         }
+
     }
 
 }

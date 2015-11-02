@@ -14,11 +14,11 @@ public class seat : MonoBehaviour {
 	
 	}
 
-    /*
+    
     void OnTriggerEnter2D(Collider2D collider2d) {
-        busy = true;
+        //busy = true;
     }
-
+    /*
     void OnTriggerExit2D(Collider2D collider2d) {
         busy = false;
     }
