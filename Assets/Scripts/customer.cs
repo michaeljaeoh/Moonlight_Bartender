@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
+using System.Collections;
 
 public class customer : MonoBehaviour {
     private bool done, sitting, ordered;
-    private Dictionary<string, int> myOrder = new Dictionary<string, int>(); // do we need to destroy this later?
+    private Dictionary<string, int> myOrder;
+    private List<string> orderOptions;
     public seat seat1;
+
+
 
 
 	// Use this for initialization
 	void Start () {
+        myOrder = new Dictionary<string, int>();
+        orderOptions = new List<string>();
+        orderOptions.Add("beer");
         done = false;
         sitting = false;
         ordered = false;
@@ -51,7 +57,10 @@ public class customer : MonoBehaviour {
 
     void placeOrder()
     {
-        myOrder.Add("beer", 1);
+        float i = (float) orderOptions.Count - 1.0F;
+        
+
+        myOrder.Add(orderOptions[(int) Random.Range(0F, i)], 1);
         ordered = true;
     }
 
