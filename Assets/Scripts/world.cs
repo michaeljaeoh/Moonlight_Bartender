@@ -3,12 +3,16 @@ using System.Collections;
 
 public class world : MonoBehaviour {
     private bool mouseBusy = false;
+    public NormalCustomer Customer;
+    public Chia chia;
 
 	// Use this for initialization
 	void Start () {
         Physics.queriesHitTriggers = true;
         //mouseBusy = true;
         //print(mouseBusy);
+        Instantiate(Customer);
+        Instantiate(chia);
     }
 
     // Update is called once per frame

@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Collections;
 
 public class customer : MonoBehaviour {
-    private bool done, dropped, sitting, ordered;
-    private Dictionary<string, int> myOrder;
-    private List<string> orderOptions;
+    private bool sitting, ordered, giveOrder, foundSeat, paid;
+    private int count, total;
+    public List<string> orderOptions, myOrder;
     public seat seat1;
-
-
+    Collider2D item;
+//    GameObject gameManager;
 
 
 	// Use this for initialization
 	void Start () {
-        myOrder = new Dictionary<string, int>();
+//        gameManager = GameObject.Find("GameManager");
+        myOrder = new List<string>();
         orderOptions = new List<string>();
-        orderOptions.Add("beer");
-        done = false;
         sitting = false;
         ordered = false;
-        dropped = false;
+        giveOrder = false;
+        count = 0;
+        total = 0;
+        foundSeat = false;
+        paid = false;
 	}
 	
 	// Update is called once per frame
@@ -28,14 +31,25 @@ public class customer : MonoBehaviour {
         {
             findSeat();
         }
-
         else if (!ordered)
         {
             placeOrder();
-            foreach (var item in myOrder.Keys) { print(item); }
+//            foreach (var item in myOrder) { total += gameManager.prices[item];}
         }
-        else if (sitting && done && dropped)
+        else if (giveOrder && Input.GetMouseButtonUp(0))
         {
+            count++;
+            Destroy(item.gameObject);
+            giveOrder = false;
+        }
+        else if (count == myOrder.Count)
+        {
+/*            if (!paid)
+            {
+                 gameManager.money += total;
+                paid = true;
+            }
+ * */
             leaveSeat();
         }
 	}
@@ -48,20 +62,23 @@ public class customer : MonoBehaviour {
         }
         else 
         {
+            print("I paid some monies in the amount"+total);
             sitting = false;
-         
             // Resetting because we only have 1 customer rightn ow
-            done = false;
-            dropped = false;
-
+            ordered = false;
+            Destroy(this.gameObject);
         }
     }
 
     void findSeat()
     {
-        if (transform.position.x < seat1.transform.position.x)
+        if (!sitting)
         {
+            print("finding a seat MUTHAFUCKKAAAAAA");
             transform.Translate(Vector2.right * 5.0F * Time.deltaTime);
+            if (foundSeat)
+                if (transform.position.x > seat1.transform.position.x)
+                    sitting = true;
         }
         else { sitting = true; }
     }
@@ -69,9 +86,8 @@ public class customer : MonoBehaviour {
     void placeOrder()
     {
         float i = (float) orderOptions.Count - 1.0F;
-        
 
-        myOrder.Add(orderOptions[(int) Random.Range(0F, i)], 1);
+        myOrder.Add(orderOptions[(int) Random.Range(0F, i)]);
         ordered = true;
     }
 
@@ -79,21 +95,19 @@ public class customer : MonoBehaviour {
     {
         if (collider2d.tag == "Seat")
         {
-            seat1.setBusy();
+            seat1 = collider2d.gameObject.GetComponent<seat>();
+            if (!seat1.getBusy())
+            {
+                foundSeat = true;
+                seat1.setBusy();
+            }
         }
-
-    }
-
-    void OnTriggerStay2D(Collider2D collider2d)
-    {
-        if (collider2d.tag == "BeerGlassFull" && Input.GetMouseButtonUp(0))
+        if (collider2d.tag == "BeerGlassFull")
         {
-            done = true;
-            dropped = true;
-            Destroy(collider2d.gameObject);
+            item = collider2d;
+            giveOrder = true;
         }
     }
- 
 
  
     void OnTriggerExit2D(Collider2D collider2d)
@@ -102,7 +116,11 @@ public class customer : MonoBehaviour {
         {
             seat1.clearBusy();
         }
-
+        if (collider2d.tag == "BeerGlassFull")
+        {
+            item = null;
+            giveOrder = false;
+        }
     }
 
 }
