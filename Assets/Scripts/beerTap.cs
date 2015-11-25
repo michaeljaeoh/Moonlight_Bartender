@@ -17,13 +17,10 @@ public class beerTap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
-
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
         if (!busy && Input.GetMouseButtonUp(0) && glassPresent)
         {
             pourTime = pourDelay;

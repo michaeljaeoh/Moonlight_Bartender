@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BarSpawner : MonoBehaviour {
-    private bool busy;
+    public bool busy = false;
     private bool mouseOver;
     public world worldInfo;
     public BarItem barItem;

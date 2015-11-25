@@ -74,7 +74,7 @@ public class customer : MonoBehaviour {
     {
         if (!sitting)
         {
-            print("finding a seat MUTHAFUCKKAAAAAA");
+            //print("finding a seat MUTHAFUCKKAAAAAA");
             transform.Translate(Vector2.right * 5.0F * Time.deltaTime);
             if (foundSeat)
                 if (transform.position.x > seat1.transform.position.x)
