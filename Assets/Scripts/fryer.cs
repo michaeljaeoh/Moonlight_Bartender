@@ -21,6 +21,7 @@ public class fryer : BarSpawner {
             fryTime = fryDelay;
             frying = true;
             animator.SetTrigger("frying");
+            print("get in here!");
             worldInfo.setMouseBusy();
             busy = true;
             Destroy(otherCollider.gameObject);

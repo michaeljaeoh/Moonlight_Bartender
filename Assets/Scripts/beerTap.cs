@@ -3,9 +3,7 @@ using System.Collections;
 
 public class beerTap : MonoBehaviour {
     public BarItem barItem;
-
     Animator animator;
-
     private bool busy;
     bool glassPresent = false;
     bool pouring = false;
