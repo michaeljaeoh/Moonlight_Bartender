@@ -6,7 +6,7 @@ public class fryer : BarSpawner {
     bool otherPresent = false;
     bool frying = false;
     float fryTime = 0;
-    float fryDelay = 1.5f;
+    float fryDelay = 3f;
     Collider2D otherCollider;
 
     // Use this for initialization

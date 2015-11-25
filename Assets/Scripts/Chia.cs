@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Chia : customer {
+public class Chia : NormalCustomer {
 
 	// Use this for initialization
-	void Start () {
-        orderOptions.Add("BeerGlassFull");
-	}
+	//void Start () {
+	//}
 	
 }

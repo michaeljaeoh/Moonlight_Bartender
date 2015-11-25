@@ -7,5 +7,6 @@ public class NormalCustomer : customer {
 	void Start () 
     {
         orderOptions.Add("BeerGlassFull");
+        orderOptions.Add("FriesCooked");
 	}
 }

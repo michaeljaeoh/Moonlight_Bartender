@@ -18,7 +18,7 @@ public class customer : MonoBehaviour {
         orderOptions = new List<string>();
         sitting = false;
         ordered = false;
-        giveOrder = false;
+        giveOrder = false; // what is this for?
         count = 0;
         total = 0;
         foundSeat = false;
@@ -39,8 +39,11 @@ public class customer : MonoBehaviour {
         else if (giveOrder && Input.GetMouseButtonUp(0))
         {
             count++;
+            print("giveorder tag: " + item.tag);
+            myOrder.Remove(item.tag);
+            print("myorder count: " + myOrder.Count);
             Destroy(item.gameObject);
-            giveOrder = false;
+            giveOrder = false; // check this
         }
         else if (count == myOrder.Count)
         {
@@ -85,10 +88,16 @@ public class customer : MonoBehaviour {
 
     void placeOrder()
     {
-        float i = (float) orderOptions.Count - 1.0F;
+        //foreach (string thing in orderOptions)
+        //    print("OrderOptions: " + thing);
 
-        myOrder.Add(orderOptions[(int) Random.Range(0F, i)]);
+        for (int i = 0; i < Random.Range(1, 3); ++i)
+            myOrder.Add(orderOptions[Random.Range(0, orderOptions.Count)]);
+
         ordered = true;
+
+        foreach (string thing in myOrder)
+            print("myorder has: " + thing);
     }
 
     void OnTriggerEnter2D(Collider2D collider2d)
@@ -102,7 +111,8 @@ public class customer : MonoBehaviour {
                 seat1.setBusy();
             }
         }
-        if (collider2d.tag == "BeerGlassFull")
+
+        if (myOrder.Contains(collider2d.tag))
         {
             item = collider2d;
             giveOrder = true;
@@ -116,10 +126,10 @@ public class customer : MonoBehaviour {
         {
             seat1.clearBusy();
         }
-        if (collider2d.tag == "BeerGlassFull")
+        if (collider2d.tag == "BeerGlassFull") //check this
         {
             item = null;
-            giveOrder = false;
+            giveOrder = false; //check this
         }
     }
 

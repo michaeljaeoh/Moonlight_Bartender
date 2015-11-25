@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
 
         prices = new Dictionary<string, int>();
         prices.Add("BeerGlassFull", 6);
+        prices.Add("FriesCooked", 4);
         prices.Add("everything else", 50);
 	}
 	
