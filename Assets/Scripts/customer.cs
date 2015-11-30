@@ -14,6 +14,7 @@ public class customer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 //        gameManager = GameObject.Find("GameManager");
+
         myOrder = new List<string>();
         orderOptions = new List<string>();
         sitting = false;
@@ -29,6 +30,7 @@ public class customer : MonoBehaviour {
 	void Update () {
         if (!sitting)
         {
+			print (UIControl.checkDropdown);
             findSeat();
         }
         else if (!ordered)
