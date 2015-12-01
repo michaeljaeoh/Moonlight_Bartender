@@ -30,7 +30,7 @@ public class customer : MonoBehaviour {
 	void Update () {
         if (!sitting)
         {
-			print (UIControl.checkDropdown);
+			print (UIControl.musicCheck);
             findSeat();
         }
         else if (!ordered)

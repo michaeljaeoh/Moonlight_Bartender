@@ -5,26 +5,26 @@ using System.Collections;
 public class UIControl : MonoBehaviour {
 
 	public Dropdown myDropdown;
-	public static int checkDropdown=0;
-	void Awake()
-{
-		if (checkDropdown == 0) {
-			print ("Fucking Unity is stupid!");
-			print ("myDropdown.optionscheckDropdown].text = " + myDropdown.options[checkDropdown].text);
-			print ("checkDropdown = " + checkDropdown);
-			//myDropdown.options[checkDropdown].text = Off;
-			} 
-		//else {
-			//myDropdown.value = 1;
-		//}
-}
+	public static int musicCheck;
 
-	public void ChangeScene(string sceneName)
-	{
-		print (checkDropdown);
-		//hi++
-		Application.LoadLevel (sceneName);
-	}
+    void Awake()
+    {
+        musicCheck = GameManager1.musicCheckInGameManager;
+
+        if (myDropdown.value != musicCheck) {
+			print("Fucking Unity is stupid!");
+            
+            //trying to change it
+            myDropdown.value = musicCheck;
+            print("myDropdown.value = " + myDropdown.value);
+            print("myDropdown.options[checkDropdown].text = " + myDropdown.options[musicCheck].text);
+        } 
+		
+    }
+
+    public void UpdateMusicCheck()
+    {
+        musicCheck = myDropdown.value;
+    }
 	
-
 }
