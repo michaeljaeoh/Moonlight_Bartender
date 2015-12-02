@@ -9,6 +9,9 @@ public class fryer : BarSpawner {
     float fryDelay = 3f;
     Collider2D otherCollider;
 
+    public AudioSource audioSource;
+    public AudioClip fryingFries;
+
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -24,6 +27,8 @@ public class fryer : BarSpawner {
             print("get in here!");
             worldInfo.setMouseBusy();
             busy = true;
+            audioSource.clip = fryingFries;
+            audioSource.Play();
             Destroy(otherCollider.gameObject);
         }
 

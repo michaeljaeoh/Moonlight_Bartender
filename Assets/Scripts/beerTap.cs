@@ -12,8 +12,11 @@ public class beerTap : MonoBehaviour {
     bool leftMouseButton;
     Collider2D glass;
 
-	// Use this for initialization
-	void Start () {
+    public AudioSource audioSource;
+    public AudioClip beerPour;
+
+    // Use this for initialization
+    void Start () {
         animator = GetComponent<Animator>();
 	}
 	
@@ -25,6 +28,8 @@ public class beerTap : MonoBehaviour {
             pouring = true;
             animator.SetTrigger("tapON");
             busy = true;
+            audioSource.clip = beerPour;
+            audioSource.Play();
             Destroy(glass.gameObject);
         }
         
