@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class world : MonoBehaviour {
     private bool mouseBusy = false;
@@ -15,8 +16,10 @@ public class world : MonoBehaviour {
         //mouseBusy = true;
         //print(mouseBusy);
         customer_stack = new Stack<customer>();
-        customer_stack.Push(Customer);
         customer_stack.Push(chia);
+        customer_stack.Push(Customer);
+        customer_stack.Push(Customer);
+        customer_stack.Push(Customer);
     }
 
     // Update is called once per frame
@@ -27,7 +30,11 @@ public class world : MonoBehaviour {
         }
 
         if (customer_count < 3 && customer_stack.Count != 0)
-            Instantiate(customer_stack.Pop());
+        {
+            customer newCustomer = customer_stack.Pop();
+            Instantiate(newCustomer);
+            newCustomer.staticWorldSetupMethod(this);
+        }
     }
 
     public bool getMouseBusy() {

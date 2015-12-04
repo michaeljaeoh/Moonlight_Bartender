@@ -4,12 +4,13 @@ using System.Collections;
 using System;
 
 public class customer : MonoBehaviour {
-    private bool sitting, ordered, giveOrder, foundSeat, paid;
-    private int count, total;
+    private bool sitting, ordered, giveOrder, foundSeat;
+    private int total;
     public List<string> orderOptions, myOrder;
     public seat seat1;
     Collider2D item;
-    //public world World;
+    public static world World;
+    public dialogueOrder diagOrder;
 //    GameObject gameManager;
 
 
@@ -22,16 +23,11 @@ public class customer : MonoBehaviour {
         sitting = false;
         ordered = false;
         giveOrder = false; // what is this for?
-        count = 0;
+        //count = 0;
         total = 0;
         foundSeat = false;
-        paid = false;
+        //paid = false;
 	}
-
-    private world FindSceneObjectsOfType(world world)
-    {
-        throw new NotImplementedException();
-    }
 
     // Update is called once per frame
     void Update () {
@@ -43,6 +39,10 @@ public class customer : MonoBehaviour {
         else if (!ordered)
         {
             placeOrder();
+            Instantiate(diagOrder);
+            diagOrder.transform.position = new Vector3(transform.position.x + 0.1f, 3.5f, transform.position.z);
+            diagOrder.setOrderList(myOrder);
+            diagOrder.drawOrder();
 //            foreach (var item in myOrder) { total += gameManager.prices[item];}
         }
         else if (giveOrder && Input.GetMouseButtonUp(0))
@@ -52,10 +52,12 @@ public class customer : MonoBehaviour {
             myOrder.Remove(item.tag);
             print("myorder count: " + myOrder.Count);
             Destroy(item.gameObject);
+            diagOrder.drawOrder();
             giveOrder = false; // check this
         }
         else if (0 == myOrder.Count)
         {
+            Destroy(diagOrder.gameObject);
 /*            if (!paid)
             {
                  gameManager.money += total;
@@ -65,6 +67,12 @@ public class customer : MonoBehaviour {
             leaveSeat();
         }
 	}
+
+    internal void staticWorldSetupMethod(world gameObject)
+    {
+        World = gameObject;
+        World.customer_count++;
+    }
 
     void leaveSeat()
     {
@@ -144,7 +152,6 @@ public class customer : MonoBehaviour {
 
     void OnDestroy()
     {
-        //World.customer_count--;
+        World.customer_count--;
     }
-
 }
