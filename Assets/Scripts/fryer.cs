@@ -9,11 +9,7 @@ public class fryer : BarSpawner {
     float fryDelay = 3f;
     Collider2D otherCollider;
 
-<<<<<<< HEAD
-    public AudioSource fryAudioSource;
-=======
     public AudioSource friesAudioSource;
->>>>>>> develop
 
     // Use this for initialization
     void Start () {
@@ -31,11 +27,7 @@ public class fryer : BarSpawner {
             worldInfo.setMouseBusy();
             busy = true;
 
-<<<<<<< HEAD
-            fryAudioSource.Play();
-=======
             friesAudioSource.Play();
->>>>>>> develop
             Destroy(otherCollider.gameObject);
         }
 
