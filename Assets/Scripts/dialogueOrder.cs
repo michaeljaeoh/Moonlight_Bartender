@@ -41,16 +41,16 @@ public class dialogueOrder : MonoBehaviour {
 
         for (int i = 0; i < orderList.Count; ++i)
         {
-            print("in dialogueOrder.draworder() = " + orderList[i]);
+           // print("in dialogueOrder.draworder() = " + orderList[i]);
             switch(orderList[i])
             {
                 case "BeerGlassFull":
-                    print("BeerGlassFull");
+                 //   print("BeerGlassFull");
                     orders[i] = beer;
                     Instantiate(orders[i]);
                     break;
                 case "FriesCooked":
-                    print("FriesCooked");
+                  //  print("FriesCooked");
                     orders[i] = fries;
                     Instantiate(orders[i]);
                     break;

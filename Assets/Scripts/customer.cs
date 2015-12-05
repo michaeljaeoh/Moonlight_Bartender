@@ -4,9 +4,8 @@ using System.Collections;
 using System;
 
 public class customer : MonoBehaviour {
-    private bool sitting, ordered, giveOrder, foundSeat;
+    private bool sitting, ordered, giveOrder, foundSeat, leaving;
     private int total;
-    private int mySeatFlag = 0;
     public List<string> orderOptions, myOrder;
     public seat seat1;
     Collider2D item;
@@ -62,6 +61,7 @@ public class customer : MonoBehaviour {
         }
         else if (0 == myOrder.Count)
         {
+            if (!leaving) { leaving = true;}
             //Destroy(diagOrder.gameObject);
 /*            if (!paid)
             {
@@ -81,7 +81,6 @@ public class customer : MonoBehaviour {
 
     void leaveSeat()
     {
-        if (transform.position.x > seat1.transform.position.x) { seat1.clearBusy(); }
         if (transform.position.x > -10.95F)
         {
             transform.Translate(Vector2.left * 5.0F * Time.deltaTime);
@@ -106,7 +105,7 @@ public class customer : MonoBehaviour {
                 if (transform.position.x > seat1.transform.position.x)
                     sitting = true;
         }
-        else { sitting = true; }
+        //else { sitting = true; }
     }
 
     void placeOrder()
@@ -125,7 +124,7 @@ public class customer : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider2d)
     {
-        if (collider2d.tag == "Seat")
+        if (collider2d.tag == "Seat" && !leaving)
         {
             seat1 = collider2d.gameObject.GetComponent<seat>();
             if (!seat1.getBusy())
@@ -147,10 +146,11 @@ public class customer : MonoBehaviour {
  
     void OnTriggerExit2D(Collider2D collider2d)
     {
-        if (collider2d.tag == "Seat")
+        if (collider2d.tag == "Seat" && leaving)
         {
-
-                print("setting seat to empty");
+                print("mudda fack you");
+                leaving = false;
+                seat1.clearBusy();
 //                seat1.clearBusy();
           
         }
