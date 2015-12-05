@@ -6,9 +6,10 @@ using System;
 public class world : MonoBehaviour {
     private bool mouseBusy = false;
     public NormalCustomer Customer;
-    public Chia chia;
+    public Chia chia; 
     public int customer_count = 0;
     private Stack<customer> customer_stack;
+    float timeLeft = 180.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,8 @@ public class world : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        timeLeft -= Time.deltaTime;
+
         if (Input.GetMouseButton(0)) {
             mouseBusy = false;
             //print(mouseBusy);

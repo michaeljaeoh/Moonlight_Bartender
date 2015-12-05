@@ -5,6 +5,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
     public int money = 0;
+    public int tapLevel = 1;
+    public int fryerLevel = 1;
     public Dictionary<string, int> prices;
 
 	// Use this for initialization

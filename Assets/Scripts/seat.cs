@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class seat : MonoBehaviour {
-    private bool busy;
+    private bool busy = false;
 
 	// Use this for initialization
 	void Start () {

@@ -6,6 +6,7 @@ using System;
 public class customer : MonoBehaviour {
     private bool sitting, ordered, giveOrder, foundSeat;
     private int total;
+    private int mySeatFlag = 0;
     public List<string> orderOptions, myOrder;
     public seat seat1;
     Collider2D item;
@@ -48,16 +49,20 @@ public class customer : MonoBehaviour {
         else if (giveOrder && Input.GetMouseButtonUp(0))
         {
             //count++;
-            print("giveorder tag: " + item.tag);
-            myOrder.Remove(item.tag);
-            print("myorder count: " + myOrder.Count);
-            Destroy(item.gameObject);
-            diagOrder.drawOrder();
-            giveOrder = false; // check this
+
+            if (myOrder.Contains(item.tag))
+            {
+                print("giveorder tag: " + item.tag);
+                myOrder.Remove(item.tag);
+                print("myorder count: " + myOrder.Count);
+                Destroy(item.gameObject);
+                diagOrder.drawOrder();
+                giveOrder = false; // check this
+            }
         }
         else if (0 == myOrder.Count)
         {
-            Destroy(diagOrder.gameObject);
+            //Destroy(diagOrder.gameObject);
 /*            if (!paid)
             {
                  gameManager.money += total;
@@ -76,6 +81,7 @@ public class customer : MonoBehaviour {
 
     void leaveSeat()
     {
+        if (transform.position.x > seat1.transform.position.x) { seat1.clearBusy(); }
         if (transform.position.x > -10.95F)
         {
             transform.Translate(Vector2.left * 5.0F * Time.deltaTime);
@@ -125,6 +131,8 @@ public class customer : MonoBehaviour {
             if (!seat1.getBusy())
             {
                 foundSeat = true;
+//                mySeatFlag = 1;
+                print("setting seat to busy");
                 seat1.setBusy();
             }
         }
@@ -141,7 +149,10 @@ public class customer : MonoBehaviour {
     {
         if (collider2d.tag == "Seat")
         {
-            seat1.clearBusy();
+
+                print("setting seat to empty");
+//                seat1.clearBusy();
+          
         }
         //if (collider2d.tag == "BeerGlassFull") //check this
         //{
