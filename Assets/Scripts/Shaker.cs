@@ -22,10 +22,12 @@ public class Shaker : BarSpawner {
         if (alcPresent && Input.GetMouseButtonUp(0))
         {
             added.Add(mixItem.tag);
+            Destroy(mixItem.gameObject);
         }
         else if (validItem && Input.GetMouseButtonUp(0))
         {
             added.Add(mixItem.tag);
+            Destroy(mixItem.gameObject);
         }
         else if (added.Count > 1)
         {
@@ -39,10 +41,12 @@ public class Shaker : BarSpawner {
         if (added.Contains("Alcohol") && added.Contains("Olive"))
         {
             Instantiate(martini);
+            added.Clear();
         }
         else if (added.Contains("Alcohol") && added.Contains("Mint"))
         {
             Instantiate(mojito);
+            added.Clear();
         }
     }
 
