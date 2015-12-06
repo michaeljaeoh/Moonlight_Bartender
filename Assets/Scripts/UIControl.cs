@@ -4,27 +4,25 @@ using System.Collections;
 
 public class UIControl : MonoBehaviour {
 
-	public Dropdown myDropdown;
-	public static int musicCheck;
+    public Slider musicSlider;
+    public Slider effectSlider;
+
 
     void Awake()
     {
-        musicCheck = GameManager1.musicCheckInGameManager;
 
-        if (myDropdown.value != musicCheck) {
-			print("Fucking Unity is stupid!");
-            
-            //trying to change it
-            myDropdown.value = musicCheck;
-            print("myDropdown.value = " + myDropdown.value);
-            print("myDropdown.options[checkDropdown].text = " + myDropdown.options[musicCheck].text);
-        } 
-		
+        musicSlider.value = GameManager.musicVolume;
+        effectSlider.value = GameManager.effectVolume;
+
     }
 
-    public void UpdateMusicCheck()
+    public void UpdateMusicVoume()
     {
-        musicCheck = myDropdown.value;
+        GameManager.musicVolume = musicSlider.value;
     }
-	
+
+    public void UpdateEffectVoume()
+    {
+        GameManager.effectVolume = effectSlider.value;
+    }
 }

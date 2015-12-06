@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviour {
     public int fryerLevel = 1;
     public Dictionary<string, int> prices;
 
-	// Use this for initialization
-	void Awake () {
+    public static float musicVolume = 0.5f;
+    public static float effectVolume = 0.5f;
+
+    // Use this for initialization
+    void Awake () {
         /*if (instance == null)
         {
             instance = this;
@@ -31,4 +34,9 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void ChangeScene(string sceneName)
+    {
+        Application.LoadLevel(sceneName);
+    }
 }
