@@ -44,10 +44,6 @@ public class Shaker : BarSpawner {
         {
             Instantiate(mojito);
         }
-        else
-        {
-
-        }
     }
 
     void OnTriggerEnter2D(Collider2D collider2d)
