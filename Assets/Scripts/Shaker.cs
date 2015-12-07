@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System;
 
-public class Shaker : BarSpawner {
+public class Shaker : MonoBehaviour {
 
     private bool alcPresent, validItem;
     Collider2D mixItem;
@@ -13,13 +13,14 @@ public class Shaker : BarSpawner {
     private bool busy, mixing;
     Animator animator;
     float mixTime = 0;
-    float mixDelay = 1.5f;
+    float mixDelay = 3.5f;
 
     public List<string> added;
 
 	// Use this for initialization
 	void Start () {
 	    added = new List<string>();
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -42,14 +43,16 @@ public class Shaker : BarSpawner {
                 {
                     mixTime = mixDelay;
                     mixing = true;
-                    animator.SetTrigger("temporary");
+                    animator.SetTrigger("mixON");
                     busy = true;
                 }
                 mixTime -= Time.deltaTime;
                 if (mixTime <= 0 && mixing) 
                 {
+                    animator.SetTrigger("mixOFF");
                     Instantiate(martini);
                     validItem = false;
+                    busy = false;
                     added.Clear();
                 }  
             }
@@ -59,14 +62,16 @@ public class Shaker : BarSpawner {
                 {
                     mixTime = mixDelay;
                     mixing = true;
-                    animator.SetTrigger("temporary");
+                    animator.SetTrigger("mixON");
                     busy = true;
                 }
                 mixTime -= Time.deltaTime;
                 if (mixTime <= 0 && mixing)
                 {
+                    animator.SetTrigger("mixOFF");
                     Instantiate(mojito);
                     validItem = false;
+                    busy = false;
                     added.Clear();
                 }
             }
