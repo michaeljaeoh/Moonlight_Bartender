@@ -48,7 +48,7 @@ public class customer : MonoBehaviour {
             }
             else if (waitTime <= (waitDelay / 3))
             {
-                animator.SetTrigger("angry");
+                //animator.SetTrigger("angry");
             }
         }
         if (!sitting)
@@ -83,8 +83,11 @@ public class customer : MonoBehaviour {
         else if (0 == myOrder.Count || timedOut)
         {
             if (!leaving) { leaving = true;
+            if (customerDO != null)
+            {
                 Destroy(customerDO.gameObject);
             }
+        }
 /*            if (!paid)
             {
                  gameManager.money += total;
@@ -140,8 +143,8 @@ public class customer : MonoBehaviour {
 
         ordered = true;
 
-        foreach (string thing in myOrder)
-            print(tag + " myorder has: " + thing);
+        //foreach (string thing in myOrder)
+            //print(tag + " myorder has: " + thing);
     }
 
     void OnTriggerEnter2D(Collider2D collider2d)
@@ -153,7 +156,7 @@ public class customer : MonoBehaviour {
             {
                 foundSeat = true;
 //                mySeatFlag = 1;
-                print("setting seat to busy");
+                //print("setting seat to busy");
                 seat1.setBusy();
             }
         }
@@ -170,7 +173,6 @@ public class customer : MonoBehaviour {
     {
         if (collider2d.tag == "Seat" && leaving)
         {
-                print("mudda fack you");
                 leaving = false;
                 seat1.clearBusy();
 //                seat1.clearBusy();
