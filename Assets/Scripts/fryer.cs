@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class fryer : BarSpawner {
+public class fryer : MonoBehaviour {
     Animator animator;
+    private bool busy;
+
+    public BarItem barItem;
+    public world worldInfo;
+
     bool otherPresent = false;
     bool frying = false;
     float fryTime = 0;
@@ -18,13 +23,14 @@ public class fryer : BarSpawner {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!busy && !worldInfo.getMouseBusy() && Input.GetMouseButtonUp(0) && otherPresent)
+        if (!busy && Input.GetMouseButtonUp(0) && otherPresent)
         {
+            //&& !worldInfo.getMouseBusy()
             fryTime = fryDelay;
             frying = true;
             animator.SetTrigger("frying");
-            print("get in here!");
-            worldInfo.setMouseBusy();
+            //print("get in here!");
+            //worldInfo.setMouseBusy();
             busy = true;
 
             friesAudioSource.Play();
@@ -37,8 +43,9 @@ public class fryer : BarSpawner {
             animator.SetTrigger("notFrying");
             otherPresent = false;
             frying = false;
-            BarItem spawnedItem = Instantiate(barItem);
-            spawnedItem.setSpawner(this);
+            //BarItem spawnedItem = 
+            Instantiate(barItem);
+            //spawnedItem.setSpawner(this);
         }
     }
 
