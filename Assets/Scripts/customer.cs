@@ -14,7 +14,7 @@ public class customer : MonoBehaviour {
     private dialogueOrder customerDO;
 
     float waitTime = 0;
-    float waitDelay = 30f;
+    float waitDelay = 10f;
     private bool timedOut, waiting;
     Animator animator;
 
