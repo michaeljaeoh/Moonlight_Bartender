@@ -62,7 +62,7 @@ public class customer : MonoBehaviour {
             waitTime = waitDelay;
             waiting = true;
             customerDO = Instantiate(diagOrder);
-            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 4.5f, transform.position.z);
+            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.7f, transform.position.z);
             customerDO.drawOrder(ref myOrder);
 //            foreach (var item in myOrder) { total += gameManager.prices[item];}
         }

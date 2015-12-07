@@ -44,17 +44,17 @@ public class dialogueOrder : MonoBehaviour {
                     if (i == 0)
                     {
                         order1 = Instantiate(beer);
-                        order1.transform.position = new Vector3(transform.position.x, 5.4f, transform.position.z - 0.1f);
+                        order1.transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z - 0.1f);
                     }
                     else if (i == 1)
                     {
                         order2 = Instantiate(beer);
-                        order2.transform.position = new Vector3(transform.position.x, 4.7f, transform.position.z - 0.1f);
+                        order2.transform.position = new Vector3(transform.position.x, 3.9f, transform.position.z - 0.1f);
                     }
                     else if (i == 2)
                     {
                         order3 = Instantiate(beer);
-                        order3.transform.position = new Vector3(transform.position.x, 4, transform.position.z - 0.1f);
+                        order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
                     }
                     break;
                 case "FriesCooked":
@@ -62,17 +62,17 @@ public class dialogueOrder : MonoBehaviour {
                     if (i == 0)
                     {
                         order1 = Instantiate(fries);
-                        order1.transform.position = new Vector3(transform.position.x, 5.4f, transform.position.z - 0.1f);
+                        order1.transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z - 0.1f);
                     }
                     else if (i == 1)
                     {
                         order2 = Instantiate(fries);
-                        order2.transform.position = new Vector3(transform.position.x, 4.7f, transform.position.z - 0.1f);
+                        order2.transform.position = new Vector3(transform.position.x, 3.9f, transform.position.z - 0.1f);
                     }
                     else if (i == 2)
                     {
                         order3 = Instantiate(fries);
-                        order3.transform.position = new Vector3(transform.position.x, 4, transform.position.z - 0.1f);
+                        order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
                     }
                     break;
                 case "Martini":
@@ -80,17 +80,17 @@ public class dialogueOrder : MonoBehaviour {
                     if (i == 0)
                     {
                         order1 = Instantiate(martini);
-                        order1.transform.position = new Vector3(transform.position.x, 5.4f, transform.position.z - 0.1f);
+                        order1.transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z - 0.1f);
                     }
                     else if (i == 1)
                     {
                         order2 = Instantiate(martini);
-                        order2.transform.position = new Vector3(transform.position.x, 4.7f, transform.position.z - 0.1f);
+                        order2.transform.position = new Vector3(transform.position.x, 3.9f, transform.position.z - 0.1f);
                     }
                     else if (i == 2)
                     {
                         order3 = Instantiate(martini);
-                        order3.transform.position = new Vector3(transform.position.x, 4, transform.position.z - 0.1f);
+                        order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
                     }
                     break;
                 case "Mojito":
@@ -98,17 +98,17 @@ public class dialogueOrder : MonoBehaviour {
                     if (i == 0)
                     {
                         order1 = Instantiate(mojito);
-                        order1.transform.position = new Vector3(transform.position.x, 5.4f, transform.position.z - 0.1f);
+                        order1.transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z - 0.1f);
                     }
                     else if (i == 1)
                     {
                         order2 = Instantiate(mojito);
-                        order2.transform.position = new Vector3(transform.position.x, 4.7f, transform.position.z - 0.1f);
+                        order2.transform.position = new Vector3(transform.position.x, 3.9f, transform.position.z - 0.1f);
                     }
                     else if (i == 2)
                     {
                         order3 = Instantiate(mojito);
-                        order3.transform.position = new Vector3(transform.position.x, 4, transform.position.z - 0.1f);
+                        order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
                     }
                     break;
             }
