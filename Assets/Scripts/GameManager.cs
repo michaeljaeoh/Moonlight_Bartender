@@ -4,9 +4,12 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
     //public static GameManager instance = null;
-    public int money = 0;
-    public int tapLevel = 1;
-    public int fryerLevel = 1;
+    public static int money = 0;
+    public static int level_1_star = 0;
+    public static int level_2_star = 0;
+    public static int level_3_star = 0;
+    //public int tapLevel = 1;
+    //public int fryerLevel = 1;
     public Dictionary<string, int> prices;
 
     public static float musicVolume = 0.5f;
