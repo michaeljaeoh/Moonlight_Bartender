@@ -43,6 +43,7 @@ public class fryer : MonoBehaviour {
             animator.SetTrigger("notFrying");
             otherPresent = false;
             frying = false;
+            busy = false;
             //BarItem spawnedItem = 
             Instantiate(barItem);
             //spawnedItem.setSpawner(this);
@@ -61,7 +62,10 @@ public class fryer : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D collider2d)
     {
-        otherPresent = false;
-        otherCollider = null;
+        if (collider2d.tag == "FriesUncooked")
+        {
+            otherPresent = false;
+            otherCollider = null;
+        }
     }
 }

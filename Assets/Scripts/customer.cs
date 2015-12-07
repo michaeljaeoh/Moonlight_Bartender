@@ -12,6 +12,12 @@ public class customer : MonoBehaviour {
     public static world World;
     public dialogueOrder diagOrder;
     private dialogueOrder customerDO;
+
+    float waitTime = 0;
+    float waitDelay = 6.0f;
+    private bool timedOut, waiting;
+    Animator animator;
+
 //    GameObject gameManager;
 
 
@@ -19,6 +25,7 @@ public class customer : MonoBehaviour {
 	void Start () {
         //        gameManager = GameObject.Find("GameManager");
         //World.customer_count++;
+        animator = GetComponent<Animator>();
         myOrder = new List<string>();
         orderOptions = new List<string>();
         sitting = false;
@@ -32,6 +39,18 @@ public class customer : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (waiting)
+        {
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                timedOut = true;
+            }
+            else if (waitTime <= (waitDelay / 3))
+            {
+                animator.SetTrigger("angry");
+            }
+        }
         if (!sitting)
         {
 			//print (UIControl.musicCheck);
@@ -40,6 +59,8 @@ public class customer : MonoBehaviour {
         else if (!ordered)
         {
             placeOrder();
+            waitTime = waitDelay;
+            waiting = true;
             customerDO = Instantiate(diagOrder);
             customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.5f, transform.position.z);
             customerDO.setOrderList(myOrder);
@@ -60,7 +81,7 @@ public class customer : MonoBehaviour {
                 giveOrder = false; // check this
             }
         }
-        else if (0 == myOrder.Count)
+        else if (0 == myOrder.Count || timedOut)
         {
             if (!leaving) { leaving = true;
                 Destroy(customerDO.gameObject);
