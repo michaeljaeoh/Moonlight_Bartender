@@ -14,7 +14,7 @@ public class customer : MonoBehaviour {
     private dialogueOrder customerDO;
 
     float waitTime = 0;
-    float waitDelay = 6.0f;
+    float waitDelay = 30f;
     private bool timedOut, waiting;
     Animator animator;
 
@@ -72,9 +72,10 @@ public class customer : MonoBehaviour {
 
             if (myOrder.Contains(item.tag))
             {
-                print("giveorder tag: " + item.tag);
+                //print("giveorder tag: " + item.tag);
                 myOrder.Remove(item.tag);
-                print("myorder count: " + myOrder.Count);
+                total += GameManager.prices[item.tag];
+                //print("myorder count: " + myOrder.Count);
                 Destroy(item.gameObject);
                 customerDO.drawOrder(ref myOrder);
                 giveOrder = false; // check this
@@ -112,7 +113,8 @@ public class customer : MonoBehaviour {
         }
         else 
         {
-            print("I paid some monies in the amount"+total);
+            World.moneyEarned += total;
+            print("I paid some monies in the amount: $" + total);
             sitting = false;
             // Resetting because we only have 1 customer rightn ow
             ordered = false;

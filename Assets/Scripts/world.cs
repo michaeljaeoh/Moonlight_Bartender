@@ -11,6 +11,7 @@ public class world : MonoBehaviour {
     public int customer_count = 0;
     private Stack<customer> customer_stack;
     float timeLeft = 180.0f;
+    public float moneyEarned = 0;
 
 	// Use this for initialization
 	void Start () {
