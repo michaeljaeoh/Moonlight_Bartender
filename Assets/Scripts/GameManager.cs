@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-    //public static GameManager instance = null;
+    
     public static int money = 0;
     public static int level_1_star = 0;
     public static int level_2_star = 0;
     public static int level_3_star = 0;
-    //public int tapLevel = 1;
-    //public int fryerLevel = 1;
     public Dictionary<string, int> prices;
 
     public static float musicVolume = 0.5f;
@@ -17,16 +15,6 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        /*if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);*/
-
         prices = new Dictionary<string, int>();
         prices.Add("BeerGlassFull", 6);
         prices.Add("FriesCooked", 4);

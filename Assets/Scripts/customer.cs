@@ -11,6 +11,7 @@ public class customer : MonoBehaviour {
     Collider2D item;
     public static world World;
     public dialogueOrder diagOrder;
+    private dialogueOrder customerDO;
 //    GameObject gameManager;
 
 
@@ -39,10 +40,10 @@ public class customer : MonoBehaviour {
         else if (!ordered)
         {
             placeOrder();
-            Instantiate(diagOrder);
-            diagOrder.transform.position = new Vector3(transform.position.x + 0.1f, 3.5f, transform.position.z);
-            diagOrder.setOrderList(myOrder);
-            diagOrder.drawOrder();
+            customerDO = Instantiate(diagOrder);
+            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.5f, transform.position.z);
+            customerDO.setOrderList(myOrder);
+            customerDO.drawOrder();
 //            foreach (var item in myOrder) { total += gameManager.prices[item];}
         }
         else if (giveOrder && Input.GetMouseButtonUp(0))
@@ -55,14 +56,15 @@ public class customer : MonoBehaviour {
                 myOrder.Remove(item.tag);
                 print("myorder count: " + myOrder.Count);
                 Destroy(item.gameObject);
-                diagOrder.drawOrder();
+                customerDO.drawOrder();
                 giveOrder = false; // check this
             }
         }
         else if (0 == myOrder.Count)
         {
-            if (!leaving) { leaving = true;}
-            //Destroy(diagOrder.gameObject);
+            if (!leaving) { leaving = true;
+                Destroy(customerDO.gameObject);
+            }
 /*            if (!paid)
             {
                  gameManager.money += total;
