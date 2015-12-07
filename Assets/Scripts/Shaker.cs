@@ -10,6 +10,7 @@ public class Shaker : MonoBehaviour {
     public BarItem martini;
     public BarItem mojito;
 
+    //TRUNG SO TROLL GGGGGGGGGGGGG
     private bool busy, mixing;
     Animator animator;
     float mixTime = 0;
