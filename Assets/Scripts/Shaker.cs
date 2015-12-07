@@ -19,12 +19,12 @@ public class Shaker : BarSpawner {
 	
 	// Update is called once per frame
 	void Update () {
-        if (alcPresent && Input.GetMouseButtonUp(0))
+        if (alcPresent && Input.GetMouseButtonUp(0) && (mixItem != null))
         {
             added.Add(mixItem.tag);
             Destroy(mixItem.gameObject);
         }
-        else if (validItem && Input.GetMouseButtonUp(0))
+        else if (validItem && Input.GetMouseButtonUp(0) && (mixItem != null))
         {
             added.Add(mixItem.tag);
             Destroy(mixItem.gameObject);

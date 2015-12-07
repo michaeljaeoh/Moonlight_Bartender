@@ -6,6 +6,7 @@ using System;
 public class world : MonoBehaviour {
     private bool mouseBusy = false;
     public NormalCustomer Customer;
+    public AlcoholicCustomer Alcoholic;
     public Chia chia; 
     public int customer_count = 0;
     private Stack<customer> customer_stack;
@@ -19,7 +20,7 @@ public class world : MonoBehaviour {
         customer_stack = new Stack<customer>();
         customer_stack.Push(chia);
         customer_stack.Push(Customer);
-        customer_stack.Push(Customer);
+        customer_stack.Push(Alcoholic);
         customer_stack.Push(Customer);
     }
 
