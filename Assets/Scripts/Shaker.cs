@@ -41,11 +41,13 @@ public class Shaker : BarSpawner {
         if (added.Contains("Alcohol") && added.Contains("Olive"))
         {
             Instantiate(martini);
+            validItem = false;
             added.Clear();
         }
         else if (added.Contains("Alcohol") && added.Contains("Mint"))
         {
             Instantiate(mojito);
+            validItem = false;
             added.Clear();
         }
     }
