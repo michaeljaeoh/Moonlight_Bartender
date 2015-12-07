@@ -10,6 +10,11 @@ public class Shaker : BarSpawner {
     public BarItem martini;
     public BarItem mojito;
 
+    private bool busy, mixing;
+    Animator animator;
+    float mixTime = 0;
+    float mixDelay = 1.5f;
+
     public List<string> added;
 
 	// Use this for initialization
@@ -31,26 +36,43 @@ public class Shaker : BarSpawner {
         }
         else if (added.Count > 1)
         {
-            createDrink();
+            if (added.Contains("Alcohol") && added.Contains("Olive"))
+            {
+                if (!busy)
+                {
+                    mixTime = mixDelay;
+                    mixing = true;
+                    animator.SetTrigger("temporary");
+                    busy = true;
+                }
+                mixTime -= Time.deltaTime;
+                if (mixTime <= 0 && mixing) 
+                {
+                    Instantiate(martini);
+                    validItem = false;
+                    added.Clear();
+                }  
+            }
+            else if (added.Contains("Alcohol") && added.Contains("Mint"))
+            {
+                if (!busy)
+                {
+                    mixTime = mixDelay;
+                    mixing = true;
+                    animator.SetTrigger("temporary");
+                    busy = true;
+                }
+                mixTime -= Time.deltaTime;
+                if (mixTime <= 0 && mixing)
+                {
+                    Instantiate(mojito);
+                    validItem = false;
+                    added.Clear();
+                }
+            }
         }
         
 	}
-
-    void createDrink()
-    {
-        if (added.Contains("Alcohol") && added.Contains("Olive"))
-        {
-            Instantiate(martini);
-            validItem = false;
-            added.Clear();
-        }
-        else if (added.Contains("Alcohol") && added.Contains("Mint"))
-        {
-            Instantiate(mojito);
-            validItem = false;
-            added.Clear();
-        }
-    }
 
     void OnTriggerEnter2D(Collider2D collider2d)
     {
