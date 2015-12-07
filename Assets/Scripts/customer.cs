@@ -41,9 +41,8 @@ public class customer : MonoBehaviour {
         {
             placeOrder();
             customerDO = Instantiate(diagOrder);
-            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.5f, transform.position.z);
-            customerDO.setOrderList(myOrder);
-            customerDO.drawOrder();
+            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 4.5f, transform.position.z);
+            customerDO.drawOrder(ref myOrder);
 //            foreach (var item in myOrder) { total += gameManager.prices[item];}
         }
         else if (giveOrder && Input.GetMouseButtonUp(0))
@@ -56,7 +55,7 @@ public class customer : MonoBehaviour {
                 myOrder.Remove(item.tag);
                 print("myorder count: " + myOrder.Count);
                 Destroy(item.gameObject);
-                customerDO.drawOrder();
+                customerDO.drawOrder(ref myOrder);
                 giveOrder = false; // check this
             }
         }
