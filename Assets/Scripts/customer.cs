@@ -75,6 +75,7 @@ public class customer : MonoBehaviour {
                 //print("giveorder tag: " + item.tag);
                 myOrder.Remove(item.tag);
                 total += GameManager.prices[item.tag];
+                world.moneyEarned += GameManager.prices[item.tag];
                 //print("myorder count: " + myOrder.Count);
                 Destroy(item.gameObject);
                 customerDO.drawOrder(ref myOrder);
@@ -113,7 +114,7 @@ public class customer : MonoBehaviour {
         }
         else 
         {
-            World.moneyEarned += total;
+            //World.moneyEarned += total;
             print("I paid some monies in the amount: $" + total);
             sitting = false;
             // Resetting because we only have 1 customer rightn ow

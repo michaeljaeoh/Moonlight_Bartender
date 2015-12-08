@@ -59,12 +59,14 @@ public class fryer : MonoBehaviour {
             case "FriesUncooked":
                 otherPresent = collider2d.tag;
                 otherCollider = collider2d;
-                itemToFry = fries;
+                if (!busy)
+                    itemToFry = fries;
                 break;
             case "ChickenWingsUncooked":
                 otherPresent = collider2d.tag;
                 otherCollider = collider2d;
-                itemToFry = chicken;
+                if (!busy)
+                    itemToFry = chicken;
                 break;
         }
     }

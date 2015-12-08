@@ -10,10 +10,15 @@ public class world : MonoBehaviour {
     public Chia chia; 
     public int customer_count = 0;
     private Stack<customer> customer_stack;
-    float timeLeft = 180.0f;
-    public float moneyEarned = 0;
-
-
+    public static float timeLeft;
+    public static int moneyEarned = 0;
+    GameObject time;
+    void Awake()
+    {
+        timeLeft = 10.0f;
+        time = transform.Find("Canvas/end dialogue").gameObject;
+        time.SetActive(false);
+    }
     // Use this for initialization
     void Start () {
         Physics.queriesHitTriggers = true;
@@ -28,7 +33,14 @@ public class world : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        timeLeft -= Time.deltaTime;
+        if (timeLeft > 0)
+            timeLeft -= Time.deltaTime;
+        if (timeLeft <= 0)
+        {
+           // GameObject time = transform.Find("Canvas/end dialogue").gameObject;
+            time.SetActive(true);
+        }
+
 
         if (Input.GetMouseButton(0)) {
             mouseBusy = false;

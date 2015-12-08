@@ -21,6 +21,9 @@ public class BarSpawner : MonoBehaviour {
             worldInfo.setMouseBusy();
             busy = true;
             BarItem spawnedItem = Instantiate(barItem);
+            Vector3 worldpos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+            worldpos.z = 0f;
+            spawnedItem.transform.position = worldpos;
             spawnedItem.setSpawner(this);
         }
     }

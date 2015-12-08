@@ -9,7 +9,7 @@ public class plate : MonoBehaviour {
     string otherPresent;
     bool plating = false;
     float plateTime = 0;
-    float plateDelay = 3f;
+    float plateDelay = 0f;
     Collider2D otherCollider;
     private BarItem itemToPlate;
 
