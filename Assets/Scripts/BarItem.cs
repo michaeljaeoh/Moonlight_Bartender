@@ -4,8 +4,11 @@ using System.Collections;
 public class BarItem : MonoBehaviour {
     private bool mouseOver;
     private bool active;
+    private bool pickedUP;
     private BarSpawner spawner;
     private beerTap tap;
+
+    public world worldInfo;
 
     // Use this for initialization
     void Start () {
@@ -15,9 +18,15 @@ public class BarItem : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButton(0) && mouseOver)
+        {
             active = true;
-        if (!Input.GetMouseButton(0))
+        }
+        if (active && Input.GetMouseButtonUp(0))
+        {
+            //print("what");
+            Destroy(this.gameObject);
             active = false;
+        }
         if (active) {
             var mousePos = Input.mousePosition;
             var wantedPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));

@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class fryer : BarSpawner {
+public class fryer : MonoBehaviour {
     Animator animator;
-    bool otherPresent = false;
+    private bool busy;
+
+    public BarItem fries;
+    public BarItem chicken;
+    private BarItem itemToFry;
+    public world worldInfo;
+
+    string otherPresent;
     bool frying = false;
     float fryTime = 0;
     float fryDelay = 3f;
@@ -18,13 +25,14 @@ public class fryer : BarSpawner {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!busy && !worldInfo.getMouseBusy() && Input.GetMouseButtonUp(0) && otherPresent)
+        if (!busy && Input.GetMouseButtonUp(0) && (otherPresent != null))
         {
+            //&& !worldInfo.getMouseBusy()
             fryTime = fryDelay;
             frying = true;
             animator.SetTrigger("frying");
-            print("get in here!");
-            worldInfo.setMouseBusy();
+            //print("get in here!");
+            //worldInfo.setMouseBusy();
             busy = true;
 
             friesAudioSource.Play();
@@ -35,26 +43,35 @@ public class fryer : BarSpawner {
         if (fryTime <= 0 && frying)
         {
             animator.SetTrigger("notFrying");
-            otherPresent = false;
+            otherPresent = null;
             frying = false;
-            BarItem spawnedItem = Instantiate(barItem);
-            spawnedItem.setSpawner(this);
+            busy = false;
+            //BarItem spawnedItem = 
+            Instantiate(itemToFry);
+            //spawnedItem.setSpawner(this);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider2d)
     {
-        if (collider2d.tag == "FriesUncooked")
+        switch (collider2d.tag)
         {
-            otherPresent = true;
-            otherCollider = collider2d;
-            //print("in trigger enter");
+            case "FriesUncooked":
+                otherPresent = collider2d.tag;
+                otherCollider = collider2d;
+                itemToFry = fries;
+                break;
+            case "ChickenWingsUncooked":
+                otherPresent = collider2d.tag;
+                otherCollider = collider2d;
+                itemToFry = chicken;
+                break;
         }
     }
 
     void OnTriggerExit2D(Collider2D collider2d)
     {
-        otherPresent = false;
-        otherCollider = null;
+            otherPresent = null;
+            otherCollider = null;
     }
 }

@@ -12,6 +12,12 @@ public class customer : MonoBehaviour {
     public static world World;
     public dialogueOrder diagOrder;
     private dialogueOrder customerDO;
+
+    float waitTime = 0;
+    float waitDelay = 10f;
+    private bool timedOut, waiting;
+    Animator animator;
+
 //    GameObject gameManager;
 
 
@@ -19,6 +25,7 @@ public class customer : MonoBehaviour {
 	void Start () {
         //        gameManager = GameObject.Find("GameManager");
         //World.customer_count++;
+        animator = GetComponent<Animator>();
         myOrder = new List<string>();
         orderOptions = new List<string>();
         sitting = false;
@@ -32,6 +39,18 @@ public class customer : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (waiting)
+        {
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                timedOut = true;
+            }
+            else if (waitTime <= (waitDelay / 3))
+            {
+                //animator.SetTrigger("angry");
+            }
+        }
         if (!sitting)
         {
 			//print (UIControl.musicCheck);
@@ -40,10 +59,11 @@ public class customer : MonoBehaviour {
         else if (!ordered)
         {
             placeOrder();
+            waitTime = waitDelay;
+            waiting = true;
             customerDO = Instantiate(diagOrder);
-            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.5f, transform.position.z);
-            customerDO.setOrderList(myOrder);
-            customerDO.drawOrder();
+            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.7f, transform.position.z);
+            customerDO.drawOrder(ref myOrder);
 //            foreach (var item in myOrder) { total += gameManager.prices[item];}
         }
         else if (giveOrder && Input.GetMouseButtonUp(0))
@@ -52,19 +72,23 @@ public class customer : MonoBehaviour {
 
             if (myOrder.Contains(item.tag))
             {
-                print("giveorder tag: " + item.tag);
+                //print("giveorder tag: " + item.tag);
                 myOrder.Remove(item.tag);
-                print("myorder count: " + myOrder.Count);
+                total += GameManager.prices[item.tag];
+                //print("myorder count: " + myOrder.Count);
                 Destroy(item.gameObject);
-                customerDO.drawOrder();
+                customerDO.drawOrder(ref myOrder);
                 giveOrder = false; // check this
             }
         }
-        else if (0 == myOrder.Count)
+        else if (0 == myOrder.Count || timedOut)
         {
             if (!leaving) { leaving = true;
+            if (customerDO != null)
+            {
                 Destroy(customerDO.gameObject);
             }
+        }
 /*            if (!paid)
             {
                  gameManager.money += total;
@@ -89,7 +113,8 @@ public class customer : MonoBehaviour {
         }
         else 
         {
-            print("I paid some monies in the amount"+total);
+            World.moneyEarned += total;
+            print("I paid some monies in the amount: $" + total);
             sitting = false;
             // Resetting because we only have 1 customer rightn ow
             ordered = false;
@@ -120,8 +145,8 @@ public class customer : MonoBehaviour {
 
         ordered = true;
 
-        foreach (string thing in myOrder)
-            print(tag + " myorder has: " + thing);
+        //foreach (string thing in myOrder)
+            //print(tag + " myorder has: " + thing);
     }
 
     void OnTriggerEnter2D(Collider2D collider2d)
@@ -133,7 +158,7 @@ public class customer : MonoBehaviour {
             {
                 foundSeat = true;
 //                mySeatFlag = 1;
-                print("setting seat to busy");
+                //print("setting seat to busy");
                 seat1.setBusy();
             }
         }
@@ -150,7 +175,6 @@ public class customer : MonoBehaviour {
     {
         if (collider2d.tag == "Seat" && leaving)
         {
-                print("mudda fack you");
                 leaving = false;
                 seat1.clearBusy();
 //                seat1.clearBusy();

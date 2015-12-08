@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public static int level_1_star = 0;
     public static int level_2_star = 0;
     public static int level_3_star = 0;
-    public Dictionary<string, int> prices;
+    public static Dictionary<string, int> prices;
 
     public static float musicVolume = 0.5f;
     public static float effectVolume = 0.5f;
@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
         prices = new Dictionary<string, int>();
         prices.Add("BeerGlassFull", 6);
         prices.Add("FriesCooked", 4);
+        prices.Add("Martini", 10);
+        prices.Add("Mojito", 9);
         prices.Add("everything else", 50);
 	}
 	
