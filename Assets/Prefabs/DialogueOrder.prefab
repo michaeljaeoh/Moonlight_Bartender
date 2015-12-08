@@ -43,6 +43,7 @@ MonoBehaviour:
   beer: {fileID: 11451684, guid: 34080f7d95a4ccb4e84ba4658505526e, type: 2}
   fries: {fileID: 11484172, guid: bfabd24f1e7dcc740ba1c612e8b6054d, type: 2}
   martini: {fileID: 11419054, guid: 4c93d3b67423df54eb7c7597cc113f19, type: 2}
+  chicken: {fileID: 11413304, guid: e95cd13c6cbae3443bd5b5ae845118af, type: 2}
   mojito: {fileID: 11476950, guid: 9aa247ef14d4f5c4eaa4ad1b5202a77a, type: 2}
 --- !u!212 &21242080
 SpriteRenderer:
@@ -125,6 +126,11 @@ Prefab:
       propertyPath: m_Color.a
       value: .752941191
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chicken
+      value: 
+      objectReference: {fileID: 11413304, guid: e95cd13c6cbae3443bd5b5ae845118af,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131900}

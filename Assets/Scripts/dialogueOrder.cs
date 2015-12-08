@@ -6,6 +6,7 @@ public class dialogueOrder : MonoBehaviour {
     public DialogueOrderItem beer;
     public DialogueOrderItem fries;
     public DialogueOrderItem martini;
+    public DialogueOrderItem chicken;
     public DialogueOrderItem mojito;
     private DialogueOrderItem order1;
     private DialogueOrderItem order2;
@@ -57,7 +58,7 @@ public class dialogueOrder : MonoBehaviour {
                         order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
                     }
                     break;
-                case "FriesCooked":
+                case "FriesPlated":
                     //  print("FriesCooked");
                     if (i == 0)
                     {
@@ -90,6 +91,24 @@ public class dialogueOrder : MonoBehaviour {
                     else if (i == 2)
                     {
                         order3 = Instantiate(martini);
+                        order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
+                    }
+                    break;
+                case "ChickenWingsPlated":
+                    //  print("FriesCooked");
+                    if (i == 0)
+                    {
+                        order1 = Instantiate(chicken);
+                        order1.transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z - 0.1f);
+                    }
+                    else if (i == 1)
+                    {
+                        order2 = Instantiate(chicken);
+                        order2.transform.position = new Vector3(transform.position.x, 3.9f, transform.position.z - 0.1f);
+                    }
+                    else if (i == 2)
+                    {
+                        order3 = Instantiate(chicken);
                         order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
                     }
                     break;
