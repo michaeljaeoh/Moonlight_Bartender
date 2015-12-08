@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour {
     void Awake () {
         prices = new Dictionary<string, int>();
         prices.Add("BeerGlassFull", 6);
-        prices.Add("FriesCooked", 4);
+        prices.Add("FriesPlated", 4);
         prices.Add("Martini", 10);
+        prices.Add("ChickenWingsPlated", 8);
         prices.Add("Mojito", 9);
         prices.Add("everything else", 50);
 	}
