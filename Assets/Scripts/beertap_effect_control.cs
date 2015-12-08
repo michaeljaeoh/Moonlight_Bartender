@@ -12,8 +12,15 @@ public class beertap_effect_control : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (GameManager.paused)
+        {
+            beertapAudioSource.Pause();
+        }
+        else
+        {
+            beertapAudioSource.UnPause();
+        }
+    }
 
     void Awake()
     {

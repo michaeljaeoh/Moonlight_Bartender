@@ -9,11 +9,19 @@ public class fryer_effect_control : MonoBehaviour {
     void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (GameManager.paused)
+        {
+            fryerAudioSource.Pause();
+        }
+        else
+        {
+            fryerAudioSource.UnPause();
+        }
+    }
 
     void Awake()
     {

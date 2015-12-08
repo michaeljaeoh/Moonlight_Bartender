@@ -13,8 +13,9 @@ public class world : MonoBehaviour {
     float timeLeft = 180.0f;
     public float moneyEarned = 0;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         Physics.queriesHitTriggers = true;
         //mouseBusy = true;
         //print(mouseBusy);
@@ -51,4 +52,5 @@ public class world : MonoBehaviour {
         //print("Mouse busy");
         mouseBusy = true;
     }
+
 }
