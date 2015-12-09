@@ -74,6 +74,7 @@ public class customer : MonoBehaviour {
             {
                 //print("giveorder tag: " + item.tag);
                 myOrder.Remove(item.tag);
+                waitTime += 5f;
                 total += GameManager.prices[item.tag];
                 world.moneyEarned += GameManager.prices[item.tag];
                 //print("myorder count: " + myOrder.Count);
