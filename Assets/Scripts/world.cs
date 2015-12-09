@@ -14,11 +14,22 @@ public class world : MonoBehaviour {
     public static float timeLeft;
     public static int moneyEarned = 0;
     GameObject time;
+    GameObject star;
+    public static int star1;
+    public static int star2;
+    public static int star3;
+    private bool paid;
+
+    public static bool isLevel1, isLevel2, isLevel3;
+
 
     void Awake()
     {
-        timeLeft = 120.0f;
+        paid = false;
+        moneyEarned = 0;
+        timeLeft = 20.0f;
         time = transform.Find("Canvas/end dialogue").gameObject;
+
         time.SetActive(false);
         Physics.queriesHitTriggers = true;
         customer_stack = new Stack<customer>();
@@ -31,8 +42,39 @@ public class world : MonoBehaviour {
         if (done)
         {
             timeLeft = 0;
-            GameManager.money += moneyEarned;
+            if (!paid)
+            {
+                GameManager.money += moneyEarned;
+                print(GameManager.money);
+                paid = true;
+            }
             time.SetActive(true);
+            if (moneyEarned >= star3)
+            {
+                star = transform.Find("Canvas/end dialogue/star/star (3)").gameObject;
+                star.SetActive(true);
+                if (isLevel1) { GameManager.level_1_star = 3; }
+                else if (isLevel2) { GameManager.level_2_star = 3; }
+                else if (isLevel3) { GameManager.level_3_star = 3; }
+
+            }
+            else if ((moneyEarned >= star2) && (moneyEarned < star3))
+            {
+                star = transform.Find("Canvas/end dialogue/star/star (2)").gameObject;
+                star.SetActive(true);
+                if (isLevel1 && GameManager.level_1_star < 3) { GameManager.level_1_star = 2; }
+                else if (isLevel2 && GameManager.level_2_star < 3) { GameManager.level_2_star = 2; }
+                else if (isLevel3 && GameManager.level_2_star < 3) { GameManager.level_3_star = 2; }
+            }
+            else if ((moneyEarned >= star1) && (moneyEarned < star2))
+            {
+                star = transform.Find("Canvas/end dialogue/star/star (1)").gameObject;
+                star.SetActive(true);
+                if (isLevel1 && GameManager.level_1_star < 2) { GameManager.level_1_star = 1; }
+                else if (isLevel2 && GameManager.level_2_star < 2) { GameManager.level_2_star = 1; }
+                else if (isLevel3 && GameManager.level_3_star < 2) { GameManager.level_3_star = 1; }
+            }
+            
         }
         if (timeLeft > 0)
             timeLeft -= Time.deltaTime;

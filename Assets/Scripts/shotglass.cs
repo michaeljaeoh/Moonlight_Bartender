@@ -7,7 +7,7 @@ public class shotglass : MonoBehaviour {
     public world worldInfo;
     string otherPresent;
     bool pouring = false;
-    float pourTime = 0;
+    float pourTime = 0f;
     float pourDelay = 0f;
     Collider2D otherCollider;
     private BarItem itemToMake;

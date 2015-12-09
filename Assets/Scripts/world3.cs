@@ -8,6 +8,10 @@ public class world3 : world
     // Use this for initialization
     void Start()
     {
+        isLevel3 = true;
+        star1 = 80;
+        star2 = 110;
+        star3 = 130;
         drinkOptions.Add("BeerGlassFull");
         drinkOptions.Add("shotGlassFull");
         drinkOptions.Add("Martini");

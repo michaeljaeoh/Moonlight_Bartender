@@ -7,8 +7,10 @@ public class money : MonoBehaviour {
 	private int Money = 0;
 	void Awake()
 	{
+        Money = GameManager.money;
 		txt  = GetComponent<Text>();
 		//txt.text = "hi";
+        txt.text = "$ " + Money.ToString();
 	}
 	void Start (){
 		//GameObject.Find("CountText").GetComponent<Text>();
@@ -19,8 +21,7 @@ public class money : MonoBehaviour {
 	}
 
 	void Update() {
-		Money += 100;
-		txt.text = "$ " + Money.ToString();
+
 	}
 
 }

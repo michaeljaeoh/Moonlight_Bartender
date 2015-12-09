@@ -6,6 +6,10 @@ using System;
 public class world1 : world {
     // Use this for initialization
     void Start () {
+        isLevel1 = true;
+        star1 = 10;
+        star2 = 20;
+        star3 = 30;
         drinkOptions.Add("BeerGlassFull");
         drinkOptions.Add("shotGlassFull");
 
