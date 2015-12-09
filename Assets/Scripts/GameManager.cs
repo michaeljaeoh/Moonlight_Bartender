@@ -53,4 +53,8 @@ public class GameManager : MonoBehaviour {
         paused = !paused;
 
     }
+    public void exitfun()
+    {
+        Application.Quit();
+    }
 }

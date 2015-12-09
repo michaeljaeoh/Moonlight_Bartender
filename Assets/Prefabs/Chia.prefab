@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11466878}
   - 61: {fileID: 6109642}
   - 50: {fileID: 5026620}
+  - 95: {fileID: 9599960}
   m_Layer: 10
   m_Name: Chia
   m_TagString: Chia
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 3, z: 2}
+  m_LocalPosition: {x: -15, y: 3, z: 2}
   m_LocalScale: {x: .5, y: .5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,6 +61,23 @@ BoxCollider2D:
   m_Offset: {x: -.0956687927, y: -.339774132}
   serializedVersion: 2
   m_Size: {x: 3.95157337, y: 6.8446846}
+--- !u!95 &9599960
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0836e7a9a759b6043a4264acd5afeaf2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11466878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5146837aa8b5bdc4fbb1c47b498da219, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93ab34cae27a6534185ebbd8001c1cb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -149,6 +167,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: waitDelay
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

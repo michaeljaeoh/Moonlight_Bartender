@@ -19,23 +19,18 @@ public class customer : MonoBehaviour {
     public Animator animator;
     
 //    GameObject gameManager;
-
-
-	// Use this for initialization
-	void Start () {
-        //        gameManager = GameObject.Find("GameManager");
-        //World.customer_count++;
+    void Awake()
+    {
         animator = GetComponent<Animator>();
         myOrder = new List<string>();
         orderOptions = new List<string>();
         sitting = false;
         ordered = false;
         giveOrder = false; // what is this for?
-        //count = 0;
         total = 0;
         foundSeat = false;
-        //paid = false;
-	}
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
+    }
 
     // Update is called once per frame
     void Update () {
@@ -48,7 +43,7 @@ public class customer : MonoBehaviour {
             }
             else if (waitTime <= (waitDelay / 3))
             {
-                //animator.SetTrigger("angry");
+                animator.SetTrigger("angry");
             }
         }
         if (!sitting)
@@ -58,11 +53,12 @@ public class customer : MonoBehaviour {
         }
         else if (!ordered)
         {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f);
             placeOrder();
             waitTime = waitDelay;
             waiting = true;
             customerDO = Instantiate(diagOrder);
-            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.7f, transform.position.z);
+            customerDO.transform.position = new Vector3(transform.position.x + 1.5f, 3.7f, 1.25f);
             customerDO.drawOrder(ref myOrder);
 //            foreach (var item in myOrder) { total += gameManager.prices[item];}
         }
@@ -85,11 +81,13 @@ public class customer : MonoBehaviour {
         }
         else if (World.done || 0 == myOrder.Count || timedOut)
         {
-            if (!leaving) { leaving = true;
-            if (customerDO != null)
-            {
-                Destroy(customerDO.gameObject);
-            }
+            if (!leaving) {
+                leaving = true;
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
+                if (customerDO != null)
+                {
+                    Destroy(customerDO.gameObject);
+                }
         }
 /*            if (!paid)
             {

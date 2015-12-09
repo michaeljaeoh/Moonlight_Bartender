@@ -23,6 +23,9 @@ public class world : MonoBehaviour {
     public static bool isLevel1, isLevel2, isLevel3;
 
 
+    private float entryTimer = 0f;
+    private float entryDelay = 3.5f;
+
     void Awake()
     {
         paid = false;
@@ -92,9 +95,14 @@ public class world : MonoBehaviour {
 
         if (!done && customer_count < 3 && customer_stack.Count != 0)
         {
-            customer newCustomer = customer_stack.Pop();
-            Instantiate(newCustomer);
-            newCustomer.staticWorldSetupMethod(this);
+            entryTimer -= Time.deltaTime;
+            if (entryTimer <= 0)
+            {
+                customer newCustomer = customer_stack.Pop();
+                Instantiate(newCustomer);
+                newCustomer.staticWorldSetupMethod(this);
+                entryTimer = entryDelay;
+            }
         }
 
         if (customer_stack.Count == 0 && customer_count == 0)
