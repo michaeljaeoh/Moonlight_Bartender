@@ -23,6 +23,8 @@ TagManager:
   - ChickenWingsUncooked
   - ChickenWingsCooked
   - FriesPlated
+  - Whiskey
+  - shotGlassFull
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class world1 : world {
     // Use this for initialization
     void Start () {
         drinkOptions.Add("BeerGlassFull");
-        //drinkOptions.Add("ShotGlassFull");
+        drinkOptions.Add("shotGlassFull");
 
         customer_stack.Push(chia);
         customer_stack.Push(Customer);

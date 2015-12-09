@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class dialogueOrder : MonoBehaviour {
     public DialogueOrderItem beer;
+    public DialogueOrderItem shotglass;
     public DialogueOrderItem fries;
     public DialogueOrderItem martini;
     public DialogueOrderItem chicken;
@@ -45,6 +46,24 @@ public class dialogueOrder : MonoBehaviour {
                     if (i == 0)
                     {
                         order1 = Instantiate(beer);
+                        order1.transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z - 0.1f);
+                    }
+                    else if (i == 1)
+                    {
+                        order2 = Instantiate(beer);
+                        order2.transform.position = new Vector3(transform.position.x, 3.9f, transform.position.z - 0.1f);
+                    }
+                    else if (i == 2)
+                    {
+                        order3 = Instantiate(beer);
+                        order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
+                    }
+                    break;
+                case "shotGlassFull":
+                    //   print("BeerGlassFull");
+                    if (i == 0)
+                    {
+                        order1 = Instantiate(shotglass);
                         order1.transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z - 0.1f);
                     }
                     else if (i == 1)

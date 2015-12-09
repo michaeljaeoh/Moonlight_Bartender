@@ -1,43 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &100508
+--- !u!1 &170712
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 462702}
-  - 212: {fileID: 21222942}
-  - 61: {fileID: 6170130}
-  - 50: {fileID: 5013976}
-  - 114: {fileID: 11459230}
+  - 4: {fileID: 442964}
+  - 212: {fileID: 21217432}
+  - 61: {fileID: 6166496}
+  - 50: {fileID: 5002204}
+  - 114: {fileID: 11470384}
   m_Layer: 0
-  m_Name: Alcohol
-  m_TagString: Alcohol
+  m_Name: Whiskey
+  m_TagString: Whiskey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &462702
+--- !u!4 &442964
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100508}
+  m_GameObject: {fileID: 170712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.76900005, y: -2.76699996, z: 0}
-  m_LocalScale: {x: .272734046, y: .272734046, z: .272734046}
+  m_LocalPosition: {x: -5, y: -2.9000001, z: 0}
+  m_LocalScale: {x: .150000006, y: .150000006, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5013976
+--- !u!50 &5002204
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100508}
+  m_GameObject: {fileID: 170712}
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
@@ -47,37 +47,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6170130
+--- !u!61 &6166496
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100508}
+  m_GameObject: {fileID: 170712}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.70000005, y: 8.60999966}
---- !u!114 &11459230
+  m_Size: {x: 7.53999996, y: 11.8800001}
+--- !u!114 &11470384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100508}
+  m_GameObject: {fileID: 170712}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67e47aef11c128b4e9f5db345530e086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   worldInfo: {fileID: 0}
---- !u!212 &21222942
+--- !u!212 &21217432
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100508}
+  m_GameObject: {fileID: 170712}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4fd4ff395555d2e4794783e74a502588, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f327bd043d47cd043a5a708ece74b1a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -111,5 +111,5 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 100508}
+  m_RootGameObject: {fileID: 170712}
   m_IsPrefabParent: 1

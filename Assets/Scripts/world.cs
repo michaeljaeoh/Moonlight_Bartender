@@ -31,6 +31,7 @@ public class world : MonoBehaviour {
         if (done)
         {
             timeLeft = 0;
+            GameManager.money += moneyEarned;
             time.SetActive(true);
         }
         if (timeLeft > 0)

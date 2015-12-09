@@ -9,7 +9,7 @@ public class world3 : world
     void Start()
     {
         drinkOptions.Add("BeerGlassFull");
-        //drinkOptions.Add("ShotGlassFull");
+        drinkOptions.Add("shotGlassFull");
         drinkOptions.Add("Martini");
         drinkOptions.Add("Mojito");
 

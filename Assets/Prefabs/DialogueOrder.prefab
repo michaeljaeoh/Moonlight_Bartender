@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beer: {fileID: 11451684, guid: 34080f7d95a4ccb4e84ba4658505526e, type: 2}
+  shotglass: {fileID: 11478814, guid: 8490bd5115022544eb62b8c324ef9a70, type: 2}
   fries: {fileID: 11484172, guid: bfabd24f1e7dcc740ba1c612e8b6054d, type: 2}
   martini: {fileID: 11419054, guid: 4c93d3b67423df54eb7c7597cc113f19, type: 2}
   chicken: {fileID: 11413304, guid: e95cd13c6cbae3443bd5b5ae845118af, type: 2}
@@ -130,6 +131,11 @@ Prefab:
       propertyPath: chicken
       value: 
       objectReference: {fileID: 11413304, guid: e95cd13c6cbae3443bd5b5ae845118af,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: shotglass
+      value: 
+      objectReference: {fileID: 11478814, guid: 8490bd5115022544eb62b8c324ef9a70,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
