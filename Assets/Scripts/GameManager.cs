@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour {
     public static float effectVolume = 0.5f;
 
     public static bool paused;
-
+    public GameObject dial;
     void Start(){
         paused = false;
+
     }
 
     // Use this for initialization
@@ -145,4 +146,21 @@ public class GameManager : MonoBehaviour {
             print(prices["shotGlassFull"]);
         }
     }
+    
+    public void poppause()
+    {
+        dial = transform.Find("Canvas/pause dialogue").gameObject;
+        print("check after dial");
+        dial.SetActive(true);
+        paused = !paused;
+    }
+
+    public void closepause()
+    {
+        dial = transform.Find("Canvas/pause dialogue").gameObject;
+        dial.SetActive(false);
+        paused = !paused;
+    }
+
+ 
 }
