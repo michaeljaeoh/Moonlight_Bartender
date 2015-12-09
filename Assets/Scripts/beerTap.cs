@@ -8,7 +8,7 @@ public class beerTap : MonoBehaviour {
     bool glassPresent = false;
     bool pouring = false;
     float pourTime = 0;
-    float pourDelay = 1.5f;
+    float pourDelay = GameManager.delayTimes["beerTap"];
     bool leftMouseButton;
     Collider2D glass;
 

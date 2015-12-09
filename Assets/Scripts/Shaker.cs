@@ -14,7 +14,7 @@ public class Shaker : MonoBehaviour {
     private bool busy, mixing;
     Animator animator;
     float mixTime = 0;
-    float mixDelay = 3.5f;
+    float mixDelay = GameManager.delayTimes["shaker"];
 
     public List<string> added;
 

@@ -13,7 +13,7 @@ public class fryer : MonoBehaviour {
     string otherPresent;
     bool frying = false;
     float fryTime = 0;
-    float fryDelay = 3f;
+    float fryDelay = GameManager.delayTimes["fryer"];
     Collider2D otherCollider;
 
     public AudioSource friesAudioSource;

@@ -21,21 +21,24 @@ public class shop_category : MonoBehaviour {
 			GameObject fries = transform.Find ("fries").gameObject;
 			fries.SetActive (false);
 			
-			GameObject olive = transform.Find ("olive").gameObject;
-			olive.SetActive (false);
+			//GameObject olive = transform.Find ("olive").gameObject;
+			//olive.SetActive (false);
 
 			GameObject mojito = transform.Find ("mojito").gameObject;
 			mojito.SetActive (false);
 			
 			GameObject martini = transform.Find ("martini").gameObject;
 			martini.SetActive (false);
-			
+
+            GameObject shot = transform.Find("Shot").gameObject;
+            shot.SetActive(false);
 
 
 
 
 
-		} 
+
+        } 
 		else if (name == "food") {
 			GameObject fryer = transform.Find ("upgrade fryer").gameObject;
 			fryer.SetActive (false);
@@ -52,8 +55,8 @@ public class shop_category : MonoBehaviour {
 			GameObject fries = transform.Find ("fries").gameObject;
 			fries.SetActive (true);
 			
-			GameObject olive = transform.Find ("olive").gameObject;
-			olive.SetActive (true);
+			//GameObject olive = transform.Find ("olive").gameObject;
+			//olive.SetActive (true);
 			
 			GameObject mojito = transform.Find ("mojito").gameObject;
 			mojito.SetActive (false);
@@ -61,7 +64,10 @@ public class shop_category : MonoBehaviour {
 			GameObject martini = transform.Find ("martini").gameObject;
 			martini.SetActive (false);
 
-		}
+            GameObject shot = transform.Find("Shot").gameObject;
+            shot.SetActive(false);
+
+        }
 		else if (name == "recipe") {
 			GameObject fryer = transform.Find ("upgrade fryer").gameObject;
 			fryer.SetActive (false);
@@ -78,14 +84,17 @@ public class shop_category : MonoBehaviour {
 			GameObject fries = transform.Find ("fries").gameObject;
 			fries.SetActive (false);
 			
-			GameObject olive = transform.Find ("olive").gameObject;
-			olive.SetActive (false);
+			//GameObject olive = transform.Find ("olive").gameObject;
+			//olive.SetActive (false);
 			
 			GameObject mojito = transform.Find ("mojito").gameObject;
 			mojito.SetActive (true);
 			
 			GameObject martini = transform.Find ("martini").gameObject;
 			martini.SetActive (true);
+
+            GameObject shot = transform.Find("Shot").gameObject;
+            shot.SetActive(true);
 		}
 	}
 
