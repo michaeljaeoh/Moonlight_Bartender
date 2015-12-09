@@ -30,7 +30,7 @@ public class world : MonoBehaviour {
     {
         paid = false;
         moneyEarned = 0;
-        timeLeft = 20.0f;
+        timeLeft = 60.0f;
         time = transform.Find("Canvas/end dialogue").gameObject;
 
         time.SetActive(false);
