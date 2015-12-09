@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.96000004, y: 2.86999989, z: 2}
-  m_LocalScale: {x: .403681666, y: .403681666, z: .322945327}
+  m_LocalPosition: {x: -10, y: 3, z: 2}
+  m_LocalScale: {x: .400000006, y: .400000006, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,10 +89,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573c1b9f8dc52ba4dbfd57817ecc7225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sitting: 0
+  ordered: 0
+  giveOrder: 0
+  foundSeat: 0
+  leaving: 0
+  total: 0
   orderOptions: []
   myOrder: []
   seat1: {fileID: 0}
   diagOrder: {fileID: 11448530, guid: 255c047650542e24e8c2e2dda7ec015d, type: 2}
+  customerDO: {fileID: 0}
+  waitTime: 0
+  waitDelay: 30
+  timedOut: 0
+  waiting: 0
+  animator: {fileID: 0}
 --- !u!212 &21265294
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -146,6 +158,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timedOut
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waitDelay
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

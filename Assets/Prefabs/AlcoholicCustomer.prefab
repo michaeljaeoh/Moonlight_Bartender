@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 1.69000006, z: 2}
-  m_LocalScale: {x: .55186981, y: .55186981, z: .441495866}
+  m_LocalPosition: {x: -13, y: 3, z: 2}
+  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,11 +55,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 137544}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.26965809}
+  m_Offset: {x: .130736828, y: -.653681755}
   serializedVersion: 2
-  m_Size: {x: 3.25, y: 5.03364944}
+  m_Size: {x: 3.34380269, y: 6.06263638}
 --- !u!114 &11423448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,10 +71,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda1d7c0da46b024eab3fe44af2710af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sitting: 0
+  ordered: 0
+  giveOrder: 0
+  foundSeat: 0
+  leaving: 0
+  total: 0
   orderOptions: []
   myOrder: []
   seat1: {fileID: 0}
   diagOrder: {fileID: 11448530, guid: 255c047650542e24e8c2e2dda7ec015d, type: 2}
+  customerDO: {fileID: 0}
+  waitTime: 0
+  waitDelay: 30
+  timedOut: 0
+  waiting: 0
+  animator: {fileID: 0}
 --- !u!212 &21255566
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2d62e4b9b3ccf0947a4e07c0c5535311, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f22561115f7889d48872e5ecbc162b1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -107,7 +119,16 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: waitDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f22561115f7889d48872e5ecbc162b1e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137544}

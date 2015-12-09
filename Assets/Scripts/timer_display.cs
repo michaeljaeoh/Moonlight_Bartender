@@ -21,8 +21,8 @@ public class timer_display : MonoBehaviour {
 	void Update() {
         //Money += 100;
 
-        var minutes = world.timeLeft / 60;
-        var seconds = world.timeLeft % 60;
+        int minutes = (int)world.timeLeft / 60;
+        int seconds = (int)world.timeLeft % 60;
 
         timer.text= string.Format("{0:0}:{1:00}", minutes, seconds);
     }

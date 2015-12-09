@@ -5,9 +5,7 @@ public class AlcoholicCustomer : customer{
 
 	// Use this for initialization
 	void Start () {
-        orderOptions.Add("BeerGlassFull");
-        orderOptions.Add("Mojito");
-        orderOptions.Add("Martini");
+        orderOptions.AddRange(World.drinkOptions);
 	}
 	
 	// Update is called once per frame

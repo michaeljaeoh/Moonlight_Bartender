@@ -4,41 +4,41 @@ using System.Collections.Generic;
 using System;
 
 public class world : MonoBehaviour {
-    private bool mouseBusy = false;
+    public bool mouseBusy, done;
     public NormalCustomer Customer;
     public AlcoholicCustomer Alcoholic;
     public Chia chia; 
     public int customer_count = 0;
-    private Stack<customer> customer_stack;
+    public Stack<customer> customer_stack;
+    public List<string> drinkOptions, foodOptions;
     public static float timeLeft;
     public static int moneyEarned = 0;
     GameObject time;
+
     void Awake()
     {
-        timeLeft = 10.0f;
+        timeLeft = 120.0f;
         time = transform.Find("Canvas/end dialogue").gameObject;
         time.SetActive(false);
-    }
-    // Use this for initialization
-    void Start () {
         Physics.queriesHitTriggers = true;
-        //mouseBusy = true;
-        //print(mouseBusy);
         customer_stack = new Stack<customer>();
-        customer_stack.Push(chia);
-        customer_stack.Push(Customer);
-        customer_stack.Push(Alcoholic);
-        customer_stack.Push(Customer);
+        drinkOptions = new List<string>();
+        foodOptions = new List<string>();
     }
 
     // Update is called once per frame
     void Update() {
+        if (done)
+        {
+            timeLeft = 0;
+            time.SetActive(true);
+        }
         if (timeLeft > 0)
             timeLeft -= Time.deltaTime;
         if (timeLeft <= 0)
         {
-           // GameObject time = transform.Find("Canvas/end dialogue").gameObject;
-            time.SetActive(true);
+            done = true;
+           // GameObject time = transform.Find("Canvas/end dialogue").gameObject;            
         }
 
 
@@ -47,12 +47,15 @@ public class world : MonoBehaviour {
             //print(mouseBusy);
         }
 
-        if (customer_count < 3 && customer_stack.Count != 0)
+        if (!done && customer_count < 3 && customer_stack.Count != 0)
         {
             customer newCustomer = customer_stack.Pop();
             Instantiate(newCustomer);
             newCustomer.staticWorldSetupMethod(this);
         }
+
+        if (customer_stack.Count == 0 && customer_count == 0)
+            done = true;
     }
 
     public bool getMouseBusy() {
@@ -64,5 +67,4 @@ public class world : MonoBehaviour {
         //print("Mouse busy");
         mouseBusy = true;
     }
-
 }

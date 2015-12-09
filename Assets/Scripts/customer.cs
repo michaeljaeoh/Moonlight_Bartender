@@ -4,20 +4,20 @@ using System.Collections;
 using System;
 
 public class customer : MonoBehaviour {
-    private bool sitting, ordered, giveOrder, foundSeat, leaving;
-    private int total;
+    public bool sitting, ordered, giveOrder, foundSeat, leaving;
+    public int total;
     public List<string> orderOptions, myOrder;
     public seat seat1;
     Collider2D item;
     public static world World;
     public dialogueOrder diagOrder;
-    private dialogueOrder customerDO;
+    public dialogueOrder customerDO;
 
-    float waitTime = 0;
-    float waitDelay = 10f;
-    private bool timedOut, waiting;
-    Animator animator;
-
+    public float waitTime = 0;
+    public float waitDelay = 30f; //over written by unity, set in gui
+    public bool timedOut, waiting;
+    public Animator animator;
+    
 //    GameObject gameManager;
 
 
@@ -82,7 +82,7 @@ public class customer : MonoBehaviour {
                 giveOrder = false; // check this
             }
         }
-        else if (0 == myOrder.Count || timedOut)
+        else if (World.done || 0 == myOrder.Count || timedOut)
         {
             if (!leaving) { leaving = true;
             if (customerDO != null)
