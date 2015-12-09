@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11423448}
   - 61: {fileID: 6186058}
   - 50: {fileID: 5037928}
+  - 95: {fileID: 9540410}
   m_Layer: 10
   m_Name: AlcoholicCustomer
   m_TagString: Customer
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13, y: 3, z: 2}
+  m_LocalPosition: {x: -15, y: 3, z: 2}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,6 +61,23 @@ BoxCollider2D:
   m_Offset: {x: .130736828, y: -.852992535}
   serializedVersion: 2
   m_Size: {x: 5.89496899, y: 8.5340786}
+--- !u!95 &9540410
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d291a986c274a364b8836ed5ece1597e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11423448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,6 +147,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: f22561115f7889d48872e5ecbc162b1e,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: -15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137544}

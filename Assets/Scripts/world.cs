@@ -15,6 +15,9 @@ public class world : MonoBehaviour {
     public static int moneyEarned = 0;
     GameObject time;
 
+    private float entryTimer = 0f;
+    private float entryDelay = 3.5f;
+
     void Awake()
     {
         timeLeft = 120.0f;
@@ -50,9 +53,14 @@ public class world : MonoBehaviour {
 
         if (!done && customer_count < 3 && customer_stack.Count != 0)
         {
-            customer newCustomer = customer_stack.Pop();
-            Instantiate(newCustomer);
-            newCustomer.staticWorldSetupMethod(this);
+            entryTimer -= Time.deltaTime;
+            if (entryTimer <= 0)
+            {
+                customer newCustomer = customer_stack.Pop();
+                Instantiate(newCustomer);
+                newCustomer.staticWorldSetupMethod(this);
+                entryTimer = entryDelay;
+            }
         }
 
         if (customer_stack.Count == 0 && customer_count == 0)

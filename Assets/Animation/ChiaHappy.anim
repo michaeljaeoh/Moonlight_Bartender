@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: AngryAlternate2
+  m_Name: ChiaHappy
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,7 +18,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 24e93917aba41544fbb4aa848756eda2, type: 3}
+      value: {fileID: 21300000, guid: 93ab34cae27a6534185ebbd8001c1cb0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -37,7 +37,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 24e93917aba41544fbb4aa848756eda2, type: 3}
+    - {fileID: 21300000, guid: 93ab34cae27a6534185ebbd8001c1cb0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0

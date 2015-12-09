@@ -68,12 +68,12 @@ public class dialogueOrder : MonoBehaviour {
                     }
                     else if (i == 1)
                     {
-                        order2 = Instantiate(beer);
+                        order2 = Instantiate(shotglass);
                         order2.transform.position = new Vector3(transform.position.x, 3.9f, transform.position.z - 0.1f);
                     }
                     else if (i == 2)
                     {
-                        order3 = Instantiate(beer);
+                        order3 = Instantiate(shotglass);
                         order3.transform.position = new Vector3(transform.position.x, 3.2f, transform.position.z - 0.1f);
                     }
                     break;
