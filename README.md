@@ -15,7 +15,7 @@ Fall Quarter, 2015
 
 **Description:** Player will serve NPC customers and earn money. Money earned will determine level rating, shown as stars. Money earned can be used to upgrade game items (Food, Drinks, Equipment, etc.) Levels have a minimum money earned to pass/win. Winning a level will unlock the next level.
 
-**Background Story:** nfluenced by games such as Cooking Fever. Design and created in Unity 5 using C# for scripts. The game will run under Windows.
+**Background Story:** Influenced by games such as Cooking Fever. Design and created in Unity 5 using C# for scripts. The game will run under Windows.
 
 * * *
 
@@ -27,7 +27,7 @@ This game runs best on a Windows 7 / 8 / 8.1 / 10
 
 ### Gameplay Videos on YouTube
 
-[![Gameplay Video](https://i.ytimg.com/vi/b_Rf_ix7kfE/2.jpg "Gameplay Video")](https://youtu.be/b_Rf_ix7kfE)
+[![Gameplay Video](screenshots/screenshot.png "Gameplay Video")](https://youtu.be/b_Rf_ix7kfE)
 
 * * *
 
