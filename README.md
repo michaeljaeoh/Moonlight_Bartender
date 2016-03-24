@@ -27,7 +27,7 @@ This game runs best on a Windows 7 / 8 / 8.1 / 10
 
 ### Gameplay Videos on YouTube
 
-[![Gameplay Video](https://i.ytimg.com/vi/b_Rf_ix7kfE/2.jpg?time=1458803578914 "Gameplay Video")](https://youtu.be/b_Rf_ix7kfE)
+[![Gameplay Video](https://i.ytimg.com/vi/b_Rf_ix7kfE/2.jpg "Gameplay Video")](https://youtu.be/b_Rf_ix7kfE)
 
 * * *
 
