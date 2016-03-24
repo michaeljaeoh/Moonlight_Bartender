@@ -1,9 +1,7 @@
 ## Famished Tournament
-<h6>
-CS-113: Computer Game Development<br>
+<h6>CS-113: Computer Game Development<br>
 University of California, Irvine<br>
-Fall Quarter, 2015
-</h6>
+Fall Quarter, 2015</h6>
 
 * * *
 
